@@ -1,0 +1,16 @@
+C:\Training\T1\FundooNoteApplication\RepositoryModel\obj\Debug\netcoreapp3.1\RepositoryModel.csproj.AssemblyReference.cache
+C:\Training\T1\FundooNoteApplication\RepositoryModel\obj\Debug\netcoreapp3.1\RepositoryModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Training\T1\FundooNoteApplication\RepositoryModel\obj\Debug\netcoreapp3.1\RepositoryModel.AssemblyInfoInputs.cache
+C:\Training\T1\FundooNoteApplication\RepositoryModel\obj\Debug\netcoreapp3.1\RepositoryModel.AssemblyInfo.cs
+C:\Training\T1\FundooNoteApplication\RepositoryModel\obj\Debug\netcoreapp3.1\RepositoryModel.csproj.CoreCompileInputs.cache
+C:\Training\T1\FundooNoteApplication\RepositoryModel\bin\Debug\netcoreapp3.1\RepositoryModel.deps.json
+C:\Training\T1\FundooNoteApplication\RepositoryModel\bin\Debug\netcoreapp3.1\RepositoryModel.runtimeconfig.json
+C:\Training\T1\FundooNoteApplication\RepositoryModel\bin\Debug\netcoreapp3.1\RepositoryModel.runtimeconfig.dev.json
+C:\Training\T1\FundooNoteApplication\RepositoryModel\bin\Debug\netcoreapp3.1\RepositoryModel.dll
+C:\Training\T1\FundooNoteApplication\RepositoryModel\bin\Debug\netcoreapp3.1\RepositoryModel.pdb
+C:\Training\T1\FundooNoteApplication\RepositoryModel\bin\Debug\netcoreapp3.1\CommonModel.dll
+C:\Training\T1\FundooNoteApplication\RepositoryModel\bin\Debug\netcoreapp3.1\CommonModel.pdb
+C:\Training\T1\FundooNoteApplication\RepositoryModel\obj\Debug\netcoreapp3.1\RepositoryModel.csproj.CopyComplete
+C:\Training\T1\FundooNoteApplication\RepositoryModel\obj\Debug\netcoreapp3.1\RepositoryModel.dll
+C:\Training\T1\FundooNoteApplication\RepositoryModel\obj\Debug\netcoreapp3.1\RepositoryModel.pdb
+C:\Training\T1\FundooNoteApplication\RepositoryModel\obj\Debug\netcoreapp3.1\RepositoryModel.genruntimeconfig.cache

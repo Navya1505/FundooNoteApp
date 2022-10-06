@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CommonModel.UserRegistrationModel
+{
+    public class UserRegistrationModel
+    {
+
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public string EmailID { get; set; }
+        public string Password { get; set; }
+
+
+    }
+
+}

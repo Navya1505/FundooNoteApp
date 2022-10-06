@@ -1,0 +1,10 @@
+C:\Training\T1\FundooNoteApplication\CommonModel\bin\Debug\netcoreapp3.1\CommonModel.deps.json
+C:\Training\T1\FundooNoteApplication\CommonModel\bin\Debug\netcoreapp3.1\CommonModel.dll
+C:\Training\T1\FundooNoteApplication\CommonModel\bin\Debug\netcoreapp3.1\CommonModel.pdb
+C:\Training\T1\FundooNoteApplication\CommonModel\obj\Debug\netcoreapp3.1\CommonModel.csproj.AssemblyReference.cache
+C:\Training\T1\FundooNoteApplication\CommonModel\obj\Debug\netcoreapp3.1\CommonModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Training\T1\FundooNoteApplication\CommonModel\obj\Debug\netcoreapp3.1\CommonModel.AssemblyInfoInputs.cache
+C:\Training\T1\FundooNoteApplication\CommonModel\obj\Debug\netcoreapp3.1\CommonModel.AssemblyInfo.cs
+C:\Training\T1\FundooNoteApplication\CommonModel\obj\Debug\netcoreapp3.1\CommonModel.csproj.CoreCompileInputs.cache
+C:\Training\T1\FundooNoteApplication\CommonModel\obj\Debug\netcoreapp3.1\CommonModel.dll
+C:\Training\T1\FundooNoteApplication\CommonModel\obj\Debug\netcoreapp3.1\CommonModel.pdb

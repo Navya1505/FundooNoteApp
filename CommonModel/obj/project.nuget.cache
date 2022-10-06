@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Up2FzrcrKR2KUiA9q18uMXHSv8e2oWBs44ZtPYy7clWzlLlfRVy9HEt9/gX0RC+Ris4bKJMzO8j9rHe4OmxsUA==",
+  "success": true,
+  "projectFilePath": "C:\\Training\\T1\\FundooNoteApplication\\CommonModel\\CommonModel.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\experimental.system.messaging\\1.1.0\\experimental.system.messaging.1.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
