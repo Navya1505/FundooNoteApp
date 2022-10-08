@@ -48,14 +48,14 @@ namespace RepositoryModel.Services
                 throw ex;
             }
         }
-        public string LoginUsers(string EmailId, string Password)
+        public string LoginUser(LoginModel loginModel)
         {
             try
             {
-                var result = fundooContext.UserTableDB.Where(u => u.EmailID == EmailId && u.Password == Password).FirstOrDefault();
+                var result = fundooContext.UserTableDB.Where(u => u.EmailID == loginModel.EmailID && u.Password == loginModel.Password).FirstOrDefault();
                 if (result != null)
                 {
-                    return GetJWTToken(EmailId, result.UserId);
+                    return GetJWTToken(result.EmailID,result.UserId);
                 }
                 else
                 {
@@ -69,7 +69,7 @@ namespace RepositoryModel.Services
             }
 
         }
-        private static string GetJWTToken(string EmailId, int userID)
+        private static string GetJWTToken(string EmailID, int UserId)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenKey = Encoding.ASCII.GetBytes("THIS_IS_MY_KEY_TO_GENERATE_TOKEN");
@@ -77,8 +77,8 @@ namespace RepositoryModel.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim("EmailId", EmailId),
-                    new Claim("userID",userID.ToString())
+                    new Claim("EmailId", EmailID),
+                    new Claim("UserId",UserId.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(30),
 
@@ -128,7 +128,7 @@ namespace RepositoryModel.Services
                         return resetentity;
                     else
                         return null;
-                    //fundooContext.UserTable.Update()
+                    //fundooContext.UserTableDB.Update()
                 }
                 else
                     return null;

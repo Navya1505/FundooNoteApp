@@ -1,6 +1,6 @@
 ﻿namespace CommonModel.Model
 {
-    public class LoginUser
+    public class LoginModel
     {
 
         public string EmailID { get; set; }

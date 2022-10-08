@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System;
+using System.Linq;
 
 namespace FundooNoteApplication.Controllers
 {
@@ -26,8 +27,9 @@ namespace FundooNoteApplication.Controllers
         {
             try
             {
-                var email = User.FindFirst(ClaimTypes.Email).Value.ToString();
-                var userdata = noteBL.CreatNoteUser(email, createnote);
+                long userId = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "UserId").Value);
+
+                var userdata = noteBL.CreateNoteUser(userId, createnote);
                 if (userdata != null)
                     return this.Ok(new { success = true, message = "Note created Successfull", data = userdata });
                 else

@@ -9,7 +9,7 @@ namespace RepositoryModel.Interface
     public interface INoteRL
     {
 
-        public NoteEntity CreatNoteUser(string email, Notes createnote);
-        NoteEntity CreatNoteUser(string email, Notes createnote);
+        public NoteEntity CreateNoteUser(long UserId,Notes createnote);
+       
     }
 }

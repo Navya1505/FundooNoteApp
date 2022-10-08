@@ -42,16 +42,17 @@ namespace FundooNoteApplication.Controllers
             }
         }
         [HttpPost("login")]
-        public IActionResult LoginUser(string EmailID, string Password)
+        public IActionResult LoginUser(LoginModel loginModel)
         {
             try
             {
-                var userdata = userBL.LoginUsers(EmailID, Password);
-                if (userdata  == null)
+                var userdata = userBL.LoginUser(loginModel);
+                if (userdata != null)
                 {
-                    return this.NotFound(new { success = false, message = $"Email And PassWord Is Notvalid" });
+                    return this.Ok(new { success = true, message = $"Login Successfull" , data=userdata });
                 }
-                return this.Ok(new { success = true, message = $"Login Successfull {userdata}" });
+                else
+                return this.NotFound(new { success = false, message = $"Login UnSuccessfull " });
             }
             catch (Exception ex)
             {

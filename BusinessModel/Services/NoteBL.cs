@@ -16,22 +16,16 @@ namespace BusinessModel.Services
             {
                 this.noteRL = noteRL;
             }
-
-        public NoteEntity CreateNoteUser(string email,Notes createnote)
+        public NoteEntity CreateNoteUser(long userId, Notes createnote)
         {
             try
             {
-                return noteRL.CreatNoteUser(email, createnote);
+                return noteRL.CreateNoteUser(userId, createnote);
             }
             catch (Exception ex)        
             {
                 throw ex;
             }
         }
-
-        public NoteEntity CreatNoteUser(string email, Notes createnote)
-        {
-            throw new NotImplementedException();
-        }
-    }
+     }
     }

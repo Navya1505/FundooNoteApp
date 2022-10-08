@@ -9,7 +9,7 @@ namespace BusinessModel.Interface
     public interface INoteBL
     {
 
-        public NoteEntity CreatNoteUser(string email, Notes createnote);
+        public NoteEntity CreateNoteUser(long userId, Notes createnote);
 
     }
 }

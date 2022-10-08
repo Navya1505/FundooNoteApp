@@ -13,19 +13,21 @@ namespace RepositoryModel.Services
     public  class NoteRL:INoteRL
     {
         private readonly FundooContext fundooContext;
+       
 
-        public NoteRL(FundooContext fundooContext, IConfiguration configuration)
+        public NoteRL(FundooContext fundooContext)
         {
             this.fundooContext = fundooContext;
+            
         }
 
 
-        public NoteEntity CreatNoteUser(string email, Notes createnote)
+        public NoteEntity CreateNoteUser(long UserId, Notes createnote)
         {
             try
             {
                 NoteEntity noteEntity = new NoteEntity();
-                var result = fundooContext.UserTableDB.Where(u => u.EmailID == email).FirstOrDefault();
+                var result = fundooContext.UserTableDB.Where(u => u.UserId == UserId).FirstOrDefault();
                 noteEntity.Title = createnote.Title;
                 noteEntity.Description = createnote.Description;
                 noteEntity.Remainder = createnote.Remainder;
@@ -47,7 +49,7 @@ namespace RepositoryModel.Services
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw ex;
             }
 
         }

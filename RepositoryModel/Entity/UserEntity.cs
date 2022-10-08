@@ -17,6 +17,11 @@ namespace RepositoryModel.Entity
         public string EmailID { get; set; }
         public string Password { get; set; }
     }
+    public class LoginEntity
+    {
+        public string EmailID { get; set; }
+        public string Password { get; set; }
+    }
         public class ResetEntity
         {
             public string EmailID{ get; set; }

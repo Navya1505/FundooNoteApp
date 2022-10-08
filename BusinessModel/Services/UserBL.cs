@@ -31,11 +31,11 @@ namespace BusinessModel.Services
                 throw;
             }
         }
-        public string LoginUsers(string EmailID, string Password)
+        public string  LoginUser(LoginModel loginModel)
         {
             try
             {
-                return userRL.LoginUsers(EmailID, Password);
+                return userRL.LoginUser(loginModel);
             }
             catch (Exception ex)
             {
@@ -53,11 +53,11 @@ namespace BusinessModel.Services
                 throw;
             }
         }
-        public ResetEntity ResetPasswordUser(string email, ResetPassword resetpassword)
+        public ResetEntity ResetPasswordUser(string EmailID, ResetPassword resetpassword)
         {
             try
             {
-                return userRL.ResetPasswordUser(email,resetpassword);
+                return userRL.ResetPasswordUser(EmailID,resetpassword);
             }
             catch (Exception ex)
             {

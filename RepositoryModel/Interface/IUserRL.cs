@@ -10,8 +10,8 @@ namespace RepositoryModel.Interface
     public interface IUserRL
     {
         public UserEntity Registration(UserRegistrationModel userRegistrationModel);
-        public string LoginUsers(string EmailId, string Password);
+        public string LoginUser(LoginModel loginModel);
         public string ForgetPassword(string EmailId);
-        public ResetEntity ResetPasswordUser(string email, ResetPassword resetpassword);
+        public ResetEntity ResetPasswordUser(string EmailId, ResetPassword resetpassword);
     }
 }

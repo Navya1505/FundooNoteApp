@@ -32,9 +32,12 @@ namespace FundooNoteApplication
             services.AddDbContext<FundooContext>(opts => opts.UseSqlServer("Data Source=(localdb)\\ProjectModels;Initial Catalog=FundooDB;Integrated Security=True;MultipleActiveResultSets=true"));
             services.AddTransient<IUserRL, UserRL>();
             services.AddTransient<IUserBL, UserBL>();
+            services.AddTransient<INoteRL, NoteRL>();
+            services.AddTransient<INoteBL, NoteBL>();
             services.AddControllers();
-            services.AddSwaggerGen();
-            services.AddSwaggerGen(c =>
+            //services.AddSwaggerGen();
+           /* 
+             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
@@ -44,6 +47,7 @@ namespace FundooNoteApplication
                 });
 
             });
+          */
             services.AddSwaggerGen(setup =>
             {
                 // Include 'SecurityScheme' to use JWT Authentication
@@ -80,6 +84,7 @@ namespace FundooNoteApplication
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
+                   // IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("navyannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnqweasd")),
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("THIS_IS_MY_KEY_TO_GENERATE_TOKEN")),
                     ValidateIssuer = false,
                     ValidateAudience = false
@@ -99,10 +104,10 @@ namespace FundooNoteApplication
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
-            app.UseAuthorization();
-            app.UseAuthentication();
+           
 
             app.UseEndpoints(endpoints =>
                 {
