@@ -6,6 +6,7 @@ using RepositoryModel.Interface;
 using RepositoryModel.Services;
 using System;
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace BusinessModel.Services
@@ -63,16 +64,54 @@ namespace BusinessModel.Services
             }
 
         }
-        public bool PinNotes(long userId,long NoteId)
+        public bool PinNotes(long NoteId)
         {
             try
             {
-                return noteRL.PinNotes(userId, NoteId);
+                return noteRL.PinNotes(NoteId);
             }
             catch(Exception e)
             {
                 throw e;
             }
         }
+
+        public bool IsTrash(long userId, long NoteId)
+        {
+            try
+            {
+                return noteRL.IsTrash(userId, NoteId);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public bool Isarcheive(long userId, long NoteId)
+        {
+            try
+            {
+                return noteRL.Isarcheive(userId, NoteId);
+            }
+
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public NoteEntity UpdateNoteColor(long userId, long noteId, string color)
+        {
+            try
+            {
+                return noteRL.UpdateNoteColor(userId, noteId, color);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
     }
 }

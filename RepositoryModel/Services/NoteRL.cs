@@ -70,7 +70,7 @@ namespace RepositoryModel.Services
         {
             try
             {
-                //NoteEntity updateNoteobj = new NoteEntity();
+                NoteEntity updateNoteobj = new NoteEntity();
                 var result = fundooContext.NoteTable.Where(u => u.UserId == userId && u.NoteID == NoteId).FirstOrDefault();
                 if (result != null)
                 {
@@ -91,26 +91,26 @@ namespace RepositoryModel.Services
                     else
                         return false;
 
-                    /*
+
                     updateNoteobj.Title = updateNote.Title;
                     updateNoteobj.Description = updateNote.Description;
-                    updateNoteobj.Reminder = updateNote.Reminder;
+                    updateNoteobj.Remainder = updateNote.Remainder;
                     updateNoteobj.Color = updateNote.Color;
-                    updateNoteobj.image = updateNote.image;
-                    updateNoteobj.archieve = updateNote.archieve;
-                    updateNote.pinned = updateNote.pinned;
-                    updateNoteobj.trash = updateNote.trash;
-                    updateNoteobj.Created_At = updateNote.Created_At;
-                    updateNoteobj.Updated_At = updateNote.Updated_At;
+                    updateNoteobj.Image = updateNote.Image;
+                    updateNoteobj.Archieve = updateNote.Archieve;
+                    updateNote.Pin = updateNote.Pin;
+                    updateNoteobj.Trash = updateNote.Trash;
+                    updateNoteobj.Created = updateNote.Created;
+                    updateNoteobj.Edited = updateNote.Edited;
                     updateNoteobj.NoteID = result.NoteID;
                     updateNoteobj.UserId = result.UserId;
                     fundooContext.NoteTable.Update(updateNoteobj);
-                    int ans = fundooContext.SaveChanges();
-                    
-                    if (ans > 0)
+                    int x = fundooContext.SaveChanges();
+
+                    if (x > 0)
                         return true;
                     else
-                        return false;*/
+                        return false;
                 }
                 else
                     return false;
@@ -141,24 +141,102 @@ namespace RepositoryModel.Services
                 throw ex; ;
             }
         }
-        public bool PinNotes(long userId, long NoteId)
+        public bool PinNotes(long NoteId)
         {
             try
             {
-                var result = fundooContext.NoteTable.Where(u => u.UserId == userId && u.NoteID == NoteId).FirstOrDefault();
-                if (result != null)
+                var result = fundooContext.NoteTable.Where(u => u.NoteID == NoteId).FirstOrDefault();
+                if (result != null && result.Pin == true)
                 {
-                    fundooContext.NoteTable.MessagePinned(result);
+                    result.Pin = false;
                     fundooContext.SaveChanges();
-                    return true;
+                    return false;
                 }
                 else
+                {
+
                     return false;
+                }
+
             }
             catch (Exception e)
             {
                 throw e;
             }
+        }
+        public bool IsTrash(long userId, long NoteId)
+        {
+            try
+            {
+                var result = fundooContext.NoteTable.Where(u => u.UserId == userId && u.NoteID == NoteId).FirstOrDefault();
+                if (result != null && result.Trash == true)
+                {
+                    result.Trash = false;
+                    fundooContext.SaveChanges();
+                    return false;
+                }
+                else
+                {
+
+                    return false;
+
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+
+            }
+
+        }
+
+
+        public bool Isarcheive(long userId, long NoteId)
+        {
+            try
+            {
+                var result = fundooContext.NoteTable.Where(u => u.UserId == userId && u.NoteID == NoteId).FirstOrDefault();
+
+                if (result != null && result.Archieve == true)
+                {
+                    result.Archieve = false;
+                    fundooContext.SaveChanges();
+                    return false;
+                }
+                else
+                {
+
+                    return false;
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public NoteEntity UpdateNoteColor(long userId, long noteId, string color)
+        {
+            try
+            {
+                var result = fundooContext.NoteTable.Where(u => u.UserId == userId && u.NoteID == noteId).FirstOrDefault();
+                if (result != null)
+                {
+                    result.Color = color;
+                    fundooContext.NoteTable.Update(result);
+                    fundooContext.SaveChanges();
+                    return result;
+                }
+                else
+                    return null;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+
         }
     }
 }

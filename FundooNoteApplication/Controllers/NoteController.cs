@@ -101,25 +101,90 @@ namespace FundooNoteApplication.Controllers
             }
 
         }
-        [HttpPost("PinNotes")]
+        [HttpPut("PinNotes")]
         public IActionResult PinNotes(long NoteId)
         {
             try
             {
                 long userId=Convert.ToInt32(User.Claims.FirstOrDefault(e=>e.Type == "UserId").Value);
-                var userData = noteBL.PinNotes(userId, NoteId);
+                var userData = noteBL.PinNotes(NoteId);
                 if (userData == true)
                     return this.Ok(new { sucess = true, message = "IsPinned ", data = userData });
+                else if (userData== false)
+                    return this.Ok(new { success = true, message = "UnPinned successfully", data = userData });
                 else
-                    return this.BadRequest(new { sucess = false, meassage = "Not Pinned" });
+                    return this.BadRequest(new { sucess = false, meassage = " Pinned Failed" });
             }
             catch(Exception e)
             {
                 throw e;
             }
         }
+        [HttpPut("Archieve")]
+        public IActionResult Isarcheive(long NoteId)
+        {
+            try
+            {
+
+                long userId = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "UserId").Value);
+                var userData = noteBL.Isarcheive(userId, NoteId);
+                if (userData == true)
+                    return this.Ok(new { sucess = true, message = "ArcheiveNotes ", data = userData });
+                else if(userData==false)
+                    return this.Ok(new {success=true,message="UnArcheivedNotes", data=userData});
+                    return this.BadRequest(new { sucess = false, meassage = "Archeived Failed" });
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+        [HttpPut("TrashBin")]
+        public IActionResult IsTrash(long NoteId)
+        {
+            try
+            {
+                long userId = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "UserId").Value);
+                var userData = noteBL.IsTrash(userId, NoteId);
+                if (userData== true)
+                    return this.Ok(new { sucess = true, message = "Trash ", data = userData });
+
+                else if(userData==false)
+                    return this.Ok(new {sucess=true,message="Not Trashed", data=userData});
+
+                    return this.BadRequest(new { sucess = false, meassage = "TrashFailed" });
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        [HttpPut("color")]
+        public IActionResult UpdateColor(long NoteId,string color)
+        {
+            try
+            {
+                long userId = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "UserId").Value);
+                var userData = noteBL.UpdateNoteColor(userId,NoteId,color);
+                if (userData!= null)
+                    return this.Ok(new { sucess = true, message = "UpdateNoteColour successfull", data = userData });
+
+                else
+
+                return this.BadRequest(new { sucess = false, meassage = "UpdateNoteColour Unsuccessfull" });
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
-}
+        }
+       
+        
+    
+       
     
 
 

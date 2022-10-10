@@ -52,7 +52,6 @@ C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\BusinessModel.pdb
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\CommonModel.pdb
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\RepositoryModel.pdb
-C:\Training\T1\FundooNoteApplication\FundooNoteApplication\obj\Debug\netcoreapp3.1\FundooNoteApplication.MvcApplicationPartsAssemblyInfo.cs
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\obj\Debug\netcoreapp3.1\staticwebassets\FundooNoteApplication.StaticWebAssets.Manifest.cache
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\obj\Debug\netcoreapp3.1\FundooNoteApplication.RazorTargetAssemblyInfo.cache
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\obj\Debug\netcoreapp3.1\FundooNoteApplication.csproj.CopyComplete
