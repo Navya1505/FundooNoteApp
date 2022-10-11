@@ -197,7 +197,7 @@ namespace FundooNoteApplication.Controllers
         {
             try
             {
-                long userId = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "userID").Value);
+                long userId = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "UserId").Value);
                 var userdata = noteBL.Image(userId, noteId, file);
                 if (userdata.Trash == true)
                     return this.Ok(new { success = true, message = "Image uploaded successfully", data = userdata });

@@ -19,6 +19,33 @@ namespace RepositoryModel.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("RepositoryModel.Entity.CollaborateEntity", b =>
+                {
+                    b.Property<long>("CollabId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("NoteId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Receiver_Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Receiver_UserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Sender_Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Sender_UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("CollabId");
+
+                    b.ToTable("CollaborateTableDB");
+                });
+
             modelBuilder.Entity("RepositoryModel.Entity.NoteEntity", b =>
                 {
                     b.Property<long>("NoteID")
