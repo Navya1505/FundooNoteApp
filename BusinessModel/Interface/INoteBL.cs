@@ -1,4 +1,5 @@
 ﻿using CommonModel.Model;
+using Microsoft.AspNetCore.Http;
 using RepositoryModel.Entity;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace BusinessModel.Interface
         public bool IsTrash(long userId, long NoteId);
         public bool Isarcheive(long userId, long NoteId);
         public NoteEntity UpdateNoteColor(long userId, long noteId, string color);
+        public NoteEntity Image(long userId, long noteId, IFormFile file);
 
     }
 }

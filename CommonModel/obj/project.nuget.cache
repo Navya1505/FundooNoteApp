@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Up2FzrcrKR2KUiA9q18uMXHSv8e2oWBs44ZtPYy7clWzlLlfRVy9HEt9/gX0RC+Ris4bKJMzO8j9rHe4OmxsUA==",
+  "dgSpecHash": "MCSjDC5xku4m7jkD5JMNsJg3aSD22JcOR9sz/HuOqUKD3AgEntxc35Tn5fiB76gg6o/PSmaVhXz13N4qEo5mZg==",
   "success": true,
   "projectFilePath": "C:\\Training\\T1\\FundooNoteApplication\\CommonModel\\CommonModel.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\experimental.system.messaging\\1.1.0\\experimental.system.messaging.1.1.0.nupkg.sha512"
+    "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\experimental.system.messaging\\1.1.0\\experimental.system.messaging.1.1.0.nupkg.sha512",
+    "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.0\\microsoft.aspnetcore.http.features.3.1.0.nupkg.sha512",
+    "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.0\\microsoft.extensions.primitives.3.1.0.nupkg.sha512",
+    "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\system.io.pipelines\\4.7.0\\system.io.pipelines.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

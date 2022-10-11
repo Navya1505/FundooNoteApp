@@ -1,4 +1,5 @@
 ﻿using CommonModel.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using RepositoryModel.Context;
 using RepositoryModel.Entity;
@@ -8,6 +9,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace RepositoryModel.Services
 {
@@ -238,5 +243,33 @@ namespace RepositoryModel.Services
 
 
         }
+        public NoteEntity Image(long userId, long noteId, IFormFile file)
+        {
+            try
+            {
+                var result = fundooContext.NoteTable.Where(u => u.UserId == userId && u.NoteID == noteId).FirstOrDefault();
+                if (result != null)
+                {
+                    CloudinaryDotNet.Account account = new CloudinaryDotNet.Account { ApiKey = "282598545727559", ApiSecret = "XimNVxmqTLuRuA1Fgg_Gb3R0cH0", Cloud = "dlojqt0x9" };
+                    Cloudinary _cloudinary = new Cloudinary(account);
+                    var uploadParams = new ImageUploadParams()
+                    {
+                        File = new FileDescription(file.FileName, file.OpenReadStream())
+                    };
+                    var uploadresult = _cloudinary.Upload(uploadParams);
+                    result.Image = uploadresult.Url.ToString();
+                    fundooContext.SaveChanges();
+                    return result;
+
+                }
+                else
+                    return null;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            }
+      
     }
-}
+    }

@@ -1,5 +1,6 @@
 ﻿using BusinessModel.Interface;
 using CommonModel.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration.UserSecrets;
 using RepositoryModel.Entity;
 using RepositoryModel.Interface;
@@ -106,6 +107,17 @@ namespace BusinessModel.Services
             try
             {
                 return noteRL.UpdateNoteColor(userId, noteId, color);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+        public NoteEntity Image(long userId,long noteId, IFormFile file)
+        {
+            try
+            {
+                return noteRL.Image(userId, noteId, file);
             }
             catch(Exception e)
             {

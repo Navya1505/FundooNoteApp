@@ -10,6 +10,15 @@ using System.Linq;
 using BusinessModel.Services;
 using RepositoryModel.Services;
 using System.Runtime.CompilerServices;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+using RepositoryModel.Context;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace FundooNoteApplication.Controllers
 {
@@ -19,7 +28,7 @@ namespace FundooNoteApplication.Controllers
     public class NoteController : ControllerBase
     {
         private readonly INoteBL noteBL;
-
+       
         public NoteController(INoteBL noteBL)
         {
             this.noteBL = noteBL;
@@ -179,12 +188,32 @@ namespace FundooNoteApplication.Controllers
                 throw e;
             }
         }
-    }
+
+
+        [Authorize]
+        [HttpPost("ImageUpload")]
+
+        public IActionResult Image(long noteId, IFormFile file)
+        {
+            try
+            {
+                long userId = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "userID").Value);
+                var userdata = noteBL.Image(userId, noteId, file);
+                if (userdata.Trash == true)
+                    return this.Ok(new { success = true, message = "Image uploaded successfully", data = userdata });
+                else if (userdata.Trash == false)
+                    return this.Ok(new { success = true, message = "Image not uploaded", data = userdata });
+                else
+                    return this.BadRequest(new { success = false, message = "Image upload failed" });
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
-       
-        
-    
-       
-    
 
 
+    }
+}

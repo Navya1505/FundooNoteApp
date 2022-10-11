@@ -59,3 +59,5 @@ C:\Training\T1\FundooNoteApplication\FundooNoteApplication\obj\Debug\netcoreapp3
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\obj\Debug\netcoreapp3.1\FundooNoteApplication.pdb
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\obj\Debug\netcoreapp3.1\FundooNoteApplication.genruntimeconfig.cache
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\Experimental.System.Messaging.dll
+C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\CloudinaryDotNet.dll
+C:\Training\T1\FundooNoteApplication\FundooNoteApplication\obj\Debug\netcoreapp3.1\FundooNoteApplication.MvcApplicationPartsAssemblyInfo.cs
