@@ -46,6 +46,27 @@ namespace RepositoryModel.Migrations
                     b.ToTable("CollaborateTableDB");
                 });
 
+            modelBuilder.Entity("RepositoryModel.Entity.LabelEntity", b =>
+                {
+                    b.Property<long>("LabelId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LabelName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("NoteID")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("LabelId");
+
+                    b.ToTable("LabelTable");
+                });
+
             modelBuilder.Entity("RepositoryModel.Entity.NoteEntity", b =>
                 {
                     b.Property<long>("NoteID")
