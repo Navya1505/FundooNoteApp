@@ -1,4 +1,5 @@
 ﻿using CommonModel.Model;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using RepositoryModel.Context;
 using RepositoryModel.Entity;
 using RepositoryModel.Interface;
@@ -19,7 +20,8 @@ namespace RepositoryModel.Services
         public LabelEntity CreateLabel(long userId, long noteId, string LabelName)
         {
             try
-            { LabelEntity labelEntity = new LabelEntity();
+            {
+                LabelEntity labelEntity = new LabelEntity();
                 var result = fundooContext.NoteTable.Where(u => u.UserId == userId && u.NoteID == noteId).FirstOrDefault();
                 
                 if (result != null )
@@ -37,6 +39,24 @@ namespace RepositoryModel.Services
                 }
             }
             catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public List<LabelEntity> GetLabel(long userId)
+        {
+            try
+            {
+                var result =fundooContext.LabelTable.Where(u=>u.UserId==userId).ToList();
+                if (result != null)
+                {
+                    return result;
+                }
+                else
+                    return  null;
+                
+            }
+            catch(Exception e)
             {
                 throw e;
             }

@@ -13,22 +13,34 @@ namespace BusinessModel.Services
     public class LabelBL : ILabelBL
     {
         private readonly ILabelRL labelRL;
-        public LabelBL(ILabelRL LabelRL)
+        public LabelBL(ILabelRL labelRL)
         {
 
             this.labelRL = labelRL;
         }
 
 
-        public LabelEntity CreateLabel(long userId, long noteId, string LabelName)
+        public LabelEntity CreateLabel(long userId, long NoteId, string LabelName)
         {
             try
             {
-                return labelRL.CreateLabel(userId, noteId, LabelName);
+                return labelRL.CreateLabel(userId, NoteId, LabelName);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw new Exception(ex.Message);
+                throw e;
+            }
+        }
+
+        public List <LabelEntity>GetLabel(long userId)
+        {
+            try
+            {
+                return labelRL.GetLabel(userId);
+            }
+            catch(Exception e)
+            {
+                throw e;
             }
         }
     }
