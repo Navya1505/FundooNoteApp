@@ -9,5 +9,7 @@ namespace BusinessModel.Interface
     {
         public LabelEntity CreateLabel(long userId, long noteId, string LabelName);
         public List<LabelEntity> GetLabel(long userId);
+        public LabelEntity UpdateLabel(long userId, long NoteId, String LabelName, long LabelId);
+        public bool DeleteLabel(long userId, long NoteId, string LabelName);
     }
 }

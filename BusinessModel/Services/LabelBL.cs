@@ -43,6 +43,31 @@ namespace BusinessModel.Services
                 throw e;
             }
         }
+
+        public LabelEntity UpdateLabel(long userId,long NoteId,String LabelName,long LabelId)
+        {
+            try
+            {
+                return labelRL.UpdateLabel(userId, NoteId, LabelName, LabelId);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+        public bool DeleteLabel(long userId,long NoteId,string LabelName)
+        {
+            try
+            {
+                return labelRL.DeleteLabel(userId, NoteId, LabelName);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 
 }
