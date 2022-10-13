@@ -14,6 +14,10 @@ using RepositoryModel.Interface;
 using RepositoryModel.Services;
 using System.Text;
 using System;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
 
 namespace FundooNoteApplication
 {
@@ -38,20 +42,9 @@ namespace FundooNoteApplication
            services.AddTransient<ICollabRL, CollabRL>();
             services.AddTransient<ILabelRL, LabelRL>();
             services.AddTransient<ILabelBL, LabelBL>();
+          
             services.AddControllers();
-            //services.AddSwaggerGen();
-           /* 
-             services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "Implement Swagger UI",
-                    Description = "A simple example to Implement Swagger UI",
-                });
-
-            });
-          */
+           
             services.AddSwaggerGen(setup =>
             {
                 // Include 'SecurityScheme' to use JWT Authentication
@@ -76,7 +69,7 @@ namespace FundooNoteApplication
                     {jwtSecurityScheme, Array.Empty<string>() }
                 });
             });
-
+          
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -88,16 +81,20 @@ namespace FundooNoteApplication
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                   // IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("navyannnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnqweasd")),
+                  
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("THIS_IS_MY_KEY_TO_GENERATE_TOKEN")),
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
             });
-
+             services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = "localhost:6379";
+            });
+            services.AddMemoryCache();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+      
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

@@ -19,7 +19,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-
+using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
+using RepositoryModel.Entity;
+using System.Text;
+using Microsoft.Extensions.Caching.Memory;
 namespace FundooNoteApplication.Controllers
 {
     [Authorize]
@@ -28,14 +32,16 @@ namespace FundooNoteApplication.Controllers
     public class NoteController : ControllerBase
     {
         private readonly INoteBL noteBL;
-       
-        public NoteController(INoteBL noteBL)
+        private readonly IDistributedCache distributedCache;
+
+        public NoteController(INoteBL noteBL, IDistributedCache distributedCache)
         {
             this.noteBL = noteBL;
+            this.distributedCache = distributedCache;
         }
 
 
-        [HttpPost("CreateNote")]
+        [HttpPost("Create")]
         public IActionResult CreateNote(Notes createnote)
         {
             try
@@ -53,26 +59,64 @@ namespace FundooNoteApplication.Controllers
                 throw new Exception(ex.Message);
             }
         }
-        [HttpPost("Getnote")]
-        public IActionResult GetNote()
+        [HttpPost("Get")]
+        public async Task<IActionResult> GetNote()
         {
             try
             {
                 long userId = Convert.ToInt32(User.Claims.FirstOrDefault(e => e.Type == "UserId").Value);
+                var cachekey = Convert.ToString(userId);
+                string serializeddata;
+                List<NoteEntity> result;
 
-                var userdata = noteBL.GetNotes(userId);
-                if (userdata != null)
-                    return this.Ok(new { success = true, message = "Note created Successfull", data = userdata });
+                var distcacheresult = await distributedCache.GetAsync(cachekey);
+
+                if (distcacheresult != null)
+                {
+                    serializeddata = Encoding.UTF8.GetString(distcacheresult);
+                    result = JsonConvert.DeserializeObject<List<NoteEntity>>(serializeddata);
+
+                    //return this.Ok(distcacheresult);
+                    return this.Ok(new { success = true, message = "Data Note Fetch Successfull", data = result });
+                }
                 else
-                    return this.BadRequest(new { success = false, message = "Not able to create note" });
+                {
+                    var userdata = noteBL.GetNotes(userId);
+                    serializeddata = JsonConvert.SerializeObject(userdata);
+                    distcacheresult = Encoding.UTF8.GetBytes(serializeddata);
+                    var options = new DistributedCacheEntryOptions()
+                        .SetAbsoluteExpiration(TimeSpan.FromMinutes(10))
+                        .SetSlidingExpiration(TimeSpan.FromMinutes(5));
 
+                    await distributedCache.SetAsync(cachekey, distcacheresult, options);
+                    if (userdata != null)
+                        return this.Ok(new { success = true, message = "Note Data fetch Successfull", data = userdata });
+                    else
+                        return this.BadRequest(new { success = false, message = "Not able to fetch notes" });
+                }
+                /*
+                if (!memoryCache.TryGetValue(cachekey, out List<NoteEntity> cacheresult))
+                {
+                    var userdata = noteBL.GetNoteUser(userId);
+                    memoryCache.Set(cachekey,userdata);
+                    if (userdata != null)
+                        return this.Ok(new { success = true, message = "Note Data fetch Successfully", data = userdata });
+                    else
+                        return this.BadRequest(new { success = false, message = "Not able to fetch notes" });
+                }
+                else
+                    return this.Ok(new { success = true, message = "Note Data fetch Successfully", data = cacheresult });
+                */
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw e;
+                throw new Exception(ex.Message);
             }
+
         }
-        [HttpPut("UpdateNotes")]
+
+       
+        [HttpPut("Update")]
         public IActionResult UpdateNotes(long NoteId,Notes updateNote )
         {
             try
@@ -91,7 +135,7 @@ namespace FundooNoteApplication.Controllers
             }
         }
 
-        [HttpDelete("DeleteNotes")]
+        [HttpDelete("Delete")]
         public IActionResult DeleteNotes(long NoteId)
         {
             try
@@ -148,7 +192,7 @@ namespace FundooNoteApplication.Controllers
                 throw e;
             }
         }
-        [HttpPut("TrashBin")]
+        [HttpPut("Trash")]
         public IActionResult IsTrash(long NoteId)
         {
             try

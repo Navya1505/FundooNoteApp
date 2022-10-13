@@ -61,3 +61,8 @@ C:\Training\T1\FundooNoteApplication\FundooNoteApplication\obj\Debug\netcoreapp3
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\Experimental.System.Messaging.dll
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\CloudinaryDotNet.dll
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\obj\Debug\netcoreapp3.1\FundooNoteApplication.MvcApplicationPartsAssemblyInfo.cs
+C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\Pipelines.Sockets.Unofficial.dll
+C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\StackExchange.Redis.dll
+C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\System.Diagnostics.PerformanceCounter.dll
+C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
