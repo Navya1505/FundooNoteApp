@@ -8,8 +8,10 @@ using RepositoryModel.Entity;
 using RepositoryModel.Interface;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace RepositoryModel.Services
@@ -139,7 +141,5 @@ namespace RepositoryModel.Services
                 throw new Exception(ex.Message);
             }
         }
-
-       
     }
 }

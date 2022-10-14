@@ -272,3 +272,34 @@ WHERE [l].[UserId] = @__userId_0
 2022-10-14 20:41:47.2468|INFOExecuted action FundooNoteApplication.Controllers.CollaborateController.GetCollabAsync (FundooNoteApplication) in 113.5601ms
 2022-10-14 20:41:47.2468|INFOExecuted endpoint 'FundooNoteApplication.Controllers.CollaborateController.GetCollabAsync (FundooNoteApplication)'
 2022-10-14 20:41:47.2468|INFORequest finished in 148.4687ms 200 application/json; charset=utf-8
+2022-10-14 21:18:13.2747|DEBUGHosting starting
+2022-10-14 21:18:13.5364|INFOUser profile is available. Using 'C:\Users\burugupalli.lakshmi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-10-14 21:18:13.5707|DEBUGReading data from file 'C:\Users\burugupalli.lakshmi\AppData\Local\ASP.NET\DataProtection-Keys\key-4d76fb33-865a-4e8e-ab26-ebd32003ed2c.xml'.
+2022-10-14 21:18:13.5819|DEBUGReading data from file 'C:\Users\burugupalli.lakshmi\AppData\Local\ASP.NET\DataProtection-Keys\key-b80d8b0e-4705-4e8a-b456-a19a42d3909a.xml'.
+2022-10-14 21:18:13.5819|DEBUGReading data from file 'C:\Users\burugupalli.lakshmi\AppData\Local\ASP.NET\DataProtection-Keys\key-e13c4b19-b360-457c-970f-2ce18ce41863.xml'.
+2022-10-14 21:18:13.6007|DEBUGFound key {4d76fb33-865a-4e8e-ab26-ebd32003ed2c}.
+2022-10-14 21:18:13.6118|DEBUGFound key {b80d8b0e-4705-4e8a-b456-a19a42d3909a}.
+2022-10-14 21:18:13.6118|DEBUGFound key {e13c4b19-b360-457c-970f-2ce18ce41863}.
+2022-10-14 21:18:13.6321|DEBUGConsidering key {e13c4b19-b360-457c-970f-2ce18ce41863} with expiration date 2023-01-02 15:14:11Z as default key.
+2022-10-14 21:18:13.7442|DEBUGForwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=3.1.28.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-14 21:18:13.7501|DEBUGDecrypting secret element using Windows DPAPI.
+2022-10-14 21:18:13.7501|DEBUGForwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.28.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-10-14 21:18:13.7501|DEBUGOpening CNG algorithm 'AES' from provider '(null)' with chaining mode CBC.
+2022-10-14 21:18:13.7700|DEBUGOpening CNG algorithm 'SHA256' from provider '(null)' with HMAC.
+2022-10-14 21:18:13.7700|DEBUGUsing key {e13c4b19-b360-457c-970f-2ce18ce41863} as the default key.
+2022-10-14 21:18:13.7700|DEBUGKey ring with default key {e13c4b19-b360-457c-970f-2ce18ce41863} was loaded during application startup.
+2022-10-14 21:18:14.4081|DEBUGLoaded hosting startup assembly FundooNoteApplication
+2022-10-14 21:18:14.4081|DEBUGLoaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-10-14 21:18:14.4081|DEBUGLoaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-10-14 21:18:14.4081|INFOApplication started. Press Ctrl+C to shut down.
+2022-10-14 21:18:14.4081|INFOHosting environment: Development
+2022-10-14 21:18:14.4081|INFOContent root path: C:\Training\T1\FundooNoteApplication\FundooNoteApplication
+2022-10-14 21:18:14.4081|DEBUGHosting started
+2022-10-14 21:18:14.6029|INFORequest starting HTTP/2.0 GET https://localhost:44382/weatherforecast  
+2022-10-14 21:18:14.7864|DEBUGWildcard detected, all requests with hosts will be allowed.
+2022-10-14 21:18:14.7864|TRACEAll hosts are allowed.
+2022-10-14 21:18:14.8541|DEBUGNo candidates found for the request path '/weatherforecast'
+2022-10-14 21:18:14.8541|DEBUGRequest did not match any endpoints
+2022-10-14 21:18:15.0592|DEBUGAuthenticationScheme: Bearer was not authenticated.
+2022-10-14 21:18:15.1095|DEBUGThe request path  does not match the path filter
+2022-10-14 21:18:15.2372|INFORequest finished in 641.552ms 404 
