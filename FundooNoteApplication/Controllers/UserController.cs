@@ -5,6 +5,7 @@ using CommonModel.UserRegistrationModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using RepositoryModel.Entity;
 using System;
 using System.Security.Claims;
@@ -17,9 +18,11 @@ namespace FundooNoteApplication.Controllers
     {
 
         private readonly IUserBL userBL;
-        public UserController(IUserBL userBL)
+        private readonly ILogger<UserController> _logger;
+        public UserController(IUserBL userBL, ILogger<UserController> _logger)
         {
             this.userBL = userBL;
+            this._logger = _logger;
         }
         [HttpPost("Register")]
         public IActionResult Registration(UserRegistrationModel userRegistrationModel)
@@ -28,17 +31,21 @@ namespace FundooNoteApplication.Controllers
             {
                 var result = userBL.Registration(userRegistrationModel);
                 if (result != null)
+
                 {
+                    _logger.LogInformation("User Registration Successfull from  Register route");
                     return this.Ok(new { sucess = true, message = "UserRegistration sucessfull", data = result });
                 }
                 else
                 {
+                    _logger.LogInformation("User Registration UnSuccessfull from Register route");
                     return this.BadRequest(new { success = false, message = "UserRegistration fail" });
                 }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                _logger.LogError(e.Message);
+                throw e;
             }
         }
         [HttpPost("login")]
@@ -49,14 +56,19 @@ namespace FundooNoteApplication.Controllers
                 var userdata = userBL.LoginUser(loginModel);
                 if (userdata != null)
                 {
-                    return this.Ok(new { success = true, message = $"Login Successfull" , data=userdata });
+                    _logger.LogInformation(" LoginSuccessfull from  Login route");
+                    return this.Ok(new { success = true, message = $"Login Successfull", data = userdata });
                 }
                 else
-                return this.NotFound(new { success = false, message = $"Login UnSuccessfull " });
+                {
+                    _logger.LogInformation("Login UnSuccessfull from  Login route");
+                    return this.NotFound(new { success = false, message = $"Login UnSuccessfull " });
+                }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                _logger.LogError(e.Message);
+                throw e;
             }
         }
 
@@ -69,14 +81,19 @@ namespace FundooNoteApplication.Controllers
                 var result = userBL.ForgetPassword(EmailId);
                 if (result != null)
                 {
+                    _logger.LogInformation("Password reset link send Sucressfull from Forgetpassword route");
                     return this.Ok(new { success = true, message = "Password reset link send Successfull" });
                 }
                 else
+                {
+                    _logger.LogInformation(" User not Registered from  ForgetPassword route");
                     return this.BadRequest(new { success = false, message = "User not registered" });
+                }
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw new Exception(ex.Message);
+                _logger.LogError(e.Message);
+                throw e;
             }
         }
         [Authorize]
@@ -90,15 +107,20 @@ namespace FundooNoteApplication.Controllers
 
                 if (userdata != null)
                 {
+                    _logger.LogInformation(" Resetpassword Sucessfull from  ResetPassword route");
                     return this.Ok(new { success = true, message = "Reset password Successfull", data = userdata });
                 }
                 else
-                    return this.BadRequest(new { success = false, message = "Reset Password failed" });
+                {
+                    _logger.LogInformation(" Resetpassword UnSucessfull from  ResetPassword route");
+                    return this.BadRequest(new { success = false, message = "Reset Password UnSucessfull" });
+                }
 
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw new Exception(ex.Message);
+                _logger.LogError(e.Message);
+                throw e;
             }
         }
 

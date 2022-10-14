@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "as1BBt20o79YBV0BVr5IOiRU4+Ac6Qm+2X02m4/wOktMt504G6aMSXXnD9Pho3kjqYEdWzyReyEWYrBPCKV/wg==",
+  "dgSpecHash": "PW/0sXzPX6WFz1WFHZLia+b2AmjoAnO++ecyvlhDB9u3lgStfasdaDLFbo0mi0g5Qa48156GQy+H/uWYQr8dUg==",
   "success": true,
   "projectFilePath": "C:\\Training\\T1\\FundooNoteApplication\\FundooNoteApplication\\FundooNoteApplication.csproj",
   "expectedPackageFiles": [
@@ -47,6 +47,9 @@
     "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\nlog\\5.0.4\\nlog.5.0.4.nupkg.sha512",
+    "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\nlog.extensions.logging\\5.0.4\\nlog.extensions.logging.5.0.4.nupkg.sha512",
+    "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\nlog.web.aspnetcore\\5.1.4\\nlog.web.aspnetcore.5.1.4.nupkg.sha512",
     "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\pipelines.sockets.unofficial\\2.0.17\\pipelines.sockets.unofficial.2.0.17.nupkg.sha512",
     "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\burugupalli.lakshmi\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

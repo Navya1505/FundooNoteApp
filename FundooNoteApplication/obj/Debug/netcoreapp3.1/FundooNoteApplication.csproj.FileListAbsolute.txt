@@ -66,3 +66,7 @@ C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\StackExchange.Redis.dll
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\System.Diagnostics.PerformanceCounter.dll
 C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\Nlog.Config
+C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\NLog.dll
+C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+C:\Training\T1\FundooNoteApplication\FundooNoteApplication\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
